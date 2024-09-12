@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .class1 {
+           width: 250px;
+           border-radius: 15px;
+        }
+        .class2 {
+           width: 200px;
+          height: 200px;
+          object-fit: cover;
+          object-position: center;
+        }
+
+        .search-bar {
+          font-size: 16px;
+          border-width: 1px;
+          border-style: solid;
+          border-color: rgb(200, 200, 200);
+          padding: 12px 15px 12px 15px;
+          border-radius: 8px;
+          margin:10px;
+        }
+        .google-search {
+          margin:10px;
+          border:none;
+          border-radius: 30px;
+          font-size: 12px;
+          width: 500px;
+          padding: 12px 15px 12px 15px;
+          box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
+        }
+
+        .cat-avatar {
+          width: 50px;
+          height: 50px;
+          border-radius: 100px;
+          object-fit: cover;
+          vertical-align: middle;
+          cursor: pointer;
+
+        }
+        /*ta dùng vertical align de chinh cho 3 items thang hang */
+        .tweetButton {
+          vertical-align: middle;
+          border: none;
+          border-radius: 30px;
+          color: white;
+          background-color: #1da1f2;
+          padding: 10px 20px;
+          cursor: pointer;
+        }
+        .cat-input {
+          vertical-align: middle;
+          border:none;
+          font-size:14px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div>
+      <img class= "class1" src="thumbnail/cat.jpg" alt="class1">
+      <img class= "class2" src="thumbnail/cat.jpg" alt="class2">
+    </div>
+
+    <input class=search-bar type="text" placeholder="Search"> <br>
+    <input class="google-search" type="text" placeholder="Search Google or type a URL">
+
+    <div class="status-bar">
+      <img class= "cat-avatar" src="thumbnail/cat.jpg" alt="class3">
+      <input class=cat-input type="text" placeholder="What's happening?">
+      <button class="tweetButton">
+        Tweet
+      </button>
+    </div>
+
+
+</body>
+</html>
