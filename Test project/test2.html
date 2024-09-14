@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Enhanced Friend Cards</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+    }
+    p{
+      margin:0;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 20px; /* spacing between cards */
+    }
+
+    .card {
+      width: 150px;
+      box-shadow: 0 1px 5px rgba(0, 0, 0, 0.4);
+      border: none;
+      border-radius: 10px;
+      display: inline-block;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    }
+
+    .card img {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+    }
+
+    .name {
+      font-size: 18px;
+      color: black;
+      font-weight: bold;
+      margin-left: 5px;
+    }
+
+    .mutualFriends {
+      font-size: 14px;
+      color: gray;
+      margin-left: 5px;
+      margin-bottom: 5px;
+    }
+
+    .addFriendButton {
+      font-size: 14px;
+      color: white;
+      background-color: #1877F2;
+      border: none;
+      border-radius: 5px;
+      padding: 5px 10px;
+      cursor: pointer;
+      margin-left: 5px;
+      margin-bottom: 5px;
+      position: relative;
+    }
+
+    .addFriendButton:hover {
+      opacity: 0.8;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="card">
+    <img src="https://scontent.fsgn2-7.fna.fbcdn.net/v/t39.30808-1/456875092_1914635219051096_7776031545514930638_n.jpg?stp=dst-jpg_s200x200&_nc_cat=100&ccb=1-7&_nc_sid=0ecb9b&_nc_ohc=jrNpo1mshT4Q7kNvgEm64Va&_nc_ht=scontent.fsgn2-7.fna&_nc_gid=A05D7osVhv8DPWuDFIqaJV1&oh=00_AYDiO2H2KCJFjxMTRaQ8WwLBtxCyxNt8PPLPMz7qDdinHg&oe=66EB2E3F" alt="Nguyen">
+    <p class="name">Nguyen</p>
+    <p class="mutualFriends">4 mutual friends</p>
+    <button class="addFriendButton">Add Friend</button>
+  </div>
+
+  <div class="card">
+    <img src="446740937_771452781829335_7707952689753369683_n.jpg" alt="Tuan">
+    <p class="name">Tuan</p>
+    <p class="mutualFriends">2 mutual friends</p>
+    <button class="addFriendButton">Add Friend</button>
+  </div>
+
+  <div class="card">
+    <img src="https://scontent.fsgn2-7.fna.fbcdn.net/v/t39.30808-1/326728215_705525757886264_4136798400133324117_n.jpg?stp=dst-jpg_s200x200&_nc_cat=108&ccb=1-7&_nc_sid=0ecb9b&_nc_ohc=ogRWSf3wTdsQ7kNvgFeTuE_&_nc_ht=scontent.fsgn2-7.fna&oh=00_AYCCgC5rAYHWOOiFDLaWg0LOoAKk_w3PdbgJPwqPOpFEAg&oe=66EB472D" alt="An">
+    <p class="name">An</p>
+    <p class="mutualFriends">5 mutual friends</p>
+    <button class="addFriendButton">Add Friend</button>
+  </div>
+</div>
+</body>
+</html>
