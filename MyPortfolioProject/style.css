@@ -11,12 +11,13 @@
     left: 0;
     width: 100%;
     background-color: #181C14;
-    padding: 20px 15%;
+    padding: 10px 15%;
     border: none;
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
     align-items: center;
-    z-index: 1000; /* Ensure the header is always on top */
+
 }
 
 .name {
@@ -52,18 +53,17 @@
 }
 
 .home img {
-    height:320px;
+    height:200px;
     max-width: 500px;
     width: auto;
-    border-radius:175px;
+    border-radius:100px;
     margin-right:20px;
 
 }
 
 .home-content {
     color: black;
-    max-width: 600px;
-    padding: 20px;
+    max-width: 90%;
     background: transparent;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
@@ -114,3 +114,4 @@
 .footer a:hover {
     color: gray;
 }
+

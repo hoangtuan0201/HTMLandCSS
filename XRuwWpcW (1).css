@@ -1,0 +1,59 @@
+            body {
+                font-family: Arial, Helvetica, sans-serif;
+            }
+
+            * {
+                box-sizing: border-box;
+            }
+
+            /* style the container */
+            .container {
+                /* We use relative to allow us to position the element relative to the container, however in this case we're using it to create our own stacking context for a positioned element we'll use later */
+                position: relative;
+                /* This rounds all 4 corners by 5px, this is a shorthand implementation and applies the same value to all corners rather than having to write it out 4 times */
+                /* Even though this references the border, you don't need a border visible to use it, you can set border:none; and it'll still work */
+                /* Sometimes content may leak through a rounded corner, so you may need to use overflow: hidden; to hide the overflowing content (this is the system that creates your browser scrollbar) */
+                border-radius: 5px;
+
+                /* Does what it says on the tin, sets our background colour to the given hex code */
+                background-color: #f2f2f2;
+
+                /* Adds padding to two sides of our container, can you work out what sides? Use inspector in devtools to see */
+                padding: 20px 0 30px 0;
+            } 
+
+            /* style inputs and link buttons */
+            /* Notice we target two types of elements here; one with the class "btn" and then any element that is an input (similar to the above body, except we can have multiple). We use a comma to separate multiple element selectors, for good practice it's also use to put them on their own lines for readability */
+            /* Input fields are usually very heavily influenced by the browser and operating system, so we have to do a bit more work to style them to remove their default styling */
+            input,
+            .btn {
+                /* Remove the default browser styling, this doesn't remove all styling but usually reduces the browser specific styling */
+                appearance: none;
+                /* These elements are usually displayed in a form of "inline" meaning they follow a "natural" width, so we explicitly tell them to fill the available space */
+                width: 100%;
+                /* Adds some spacing to all sides of our element */
+                padding: 12px;
+                /* Remove the border, this is usually added by default by browsers and for good reason */
+                border: none;
+                /* Add our rounded corners */
+                border-radius: 4px;
+                /* Add space around the outside (padding is usually inside, margin is outside). This impacts one axis only, another type of shorthand where you only need to define 2 out of the 4 values if you want to impact the values in pairs. Use inspector to see what axis we're adding margins to */
+                margin: 5px 0;
+                /* Reduce the opacity slightly, this allows us to show an interaction at a later stage when the user hovers over the element */
+                opacity: 0.85;
+                /* Ensure that our element is displayed as an inline-block element, that's an inline element but with some of the layout controls of a block element */
+                display: inline-block;
+                /* Set our font size */
+                font-size: 17px;
+                /* Set our line height using the "em" unit of measure, this makes it relative to the font size - in this case it'd be 17 * 1.2 = 20 (roughly) */
+                line-height: 1.2em;
+                /* Remove underlines from our links */
+                text-decoration: none;
+            }
+
+            /* We'll use the pseudo selector for hover events - this is as it sounds, when the mouse is hovering over the element. What could be the problem with this approach when it comes to touch devices? */
+            input:hover,
+            .btn:hover {
+                /* When the user hovers over the element we will up the opacity to full opacity, this will help indicate to the user that they can interact */
+                opacity: 1;
+            }

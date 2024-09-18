@@ -1,0 +1,83 @@
+            /* Two-column layout */
+            .col {
+                /* There are many approaches to a two-column system, in this example we are using the float method which "floats" the element on-top of the page layout */
+                float: left;
+
+                /* We want the column to use 50% of the space available */
+                width: 50%;
+
+                /* Auto allows the browser to automatically apply margin, this is a neat little trick to center elements horizontally */
+                margin: auto;
+
+                padding: 0 50px;
+
+                /* We override the "margin: auto" above specifically just for the top margin, and set that to our value */
+                margin-top: 6px;
+            }
+
+            /* Clear floats after the columns, this is known as a "clearfix" which fixes an issue when using floats of not clearing them after and disrupting the flow of the whole document - similar to forgetting to close a HTML tag */
+            /* We use this pseudo selector to add styling after an element */
+            .row:after {
+                /* A special attribute that allows us to "inject" content into the page, try putting something in here to see what it does */
+                /* Without content, this styling won't have any effect, so we inject some blank content */
+                content: "";
+
+                /* We display it as a table to force the browser to reset the layout */
+                display: table;
+
+                /* We clear both our left and right floats (we're only using left here currently, but good practice to clear both) - this stops the interruption of the layout */
+                clear: both;
+            }
+
+            /* vertical line */
+            .vl {
+                /* Absolute removes the element from the page layout and positions based on given coordinates, in relation to the "relative" container - this is why on the container we set the position to relative. Try removing the line "position: relative" from the "container" class and see what happens. It should default to position against the whole page */
+                position: absolute;
+
+                /* We position it halfway from the left, we tend to code from the left as this is how the browser lays out a webpage (top left to bottom right), but we could use right: 50% and change our transform */
+                left: 50%;
+
+                /* When we don't define top it is automatically set by the browser, usually following the flow of the page */
+
+                /* A powerful property, in this case we are using the translate value which allows us to move an object relative to itself without impacting the flow of the page */
+                /* Moving it on the X axis means we offset half it's width against X, effectively re-centering it - using "left: 50%" above offset us slightly as it set the left of our line in the middle, rather than the middle of our line - this fixes that */
+                transform: translate(-50%);
+
+                /* We set ourselves a 2px border all the way round, again this is a shorthand */
+                border: 2px solid #ddd;
+
+                /* We finally set out fixed height, we don't use this often as we usually want content to flow naturally without being cut off, but in this case we want a solid line at a height we control */
+                height: 175px;
+            }
+
+            /* text inside the vertical line, we need to position this in the center vertically and horizontally */
+            .vl-innertext {
+                /* We use absolute again, this is relative to the parent class "vl" because it is also absolute */
+                position: absolute;
+
+                /* We position it vertically halfway down (again remembering this is to the top of the element, not the middle) */
+                top: 50%;
+
+                /* Let's offset half the width and height to re-center our element */
+                transform: translate(-50%, -50%);
+
+                /* Match the background colour to give the illusion that this is a cut-out on top of the content */
+                background-color: #f1f1f1;
+
+                /* Add our border, short hand */
+                border: 1px solid #ccc;
+
+                /* We can use percentages in our border radius, using 50% means every corner is rounded to half the width/height of the element, effectively creating a circle on a square element */
+                border-radius: 50%;
+                padding: 8px 10px;
+            }
+
+            /* bottom container */
+            .bottom-container {
+                /* Due to the nature of inheritance in CSS we can set how we want our text to align once and it'll carry on down to the child elements - good way to optimise our code */
+                text-align: center;
+                background-color: #666;
+
+                /* Long form radius, we only wan to round specific corners - inspect to see what ones */
+                border-radius: 0px 0px 4px 4px;
+            }
