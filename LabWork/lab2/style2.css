@@ -19,6 +19,7 @@
             /* We use this pseudo selector to add styling after an element */
             .row:after {
                 /* A special attribute that allows us to "inject" content into the page, try putting something in here to see what it does */
+
                 /* Without content, this styling won't have any effect, so we inject some blank content */
                 content: "";
 
@@ -77,7 +78,7 @@
                 /* Due to the nature of inheritance in CSS we can set how we want our text to align once and it'll carry on down to the child elements - good way to optimise our code */
                 text-align: center;
                 background-color: #666;
-
+                /*sign up and forgot password*/
                 /* Long form radius, we only wan to round specific corners - inspect to see what ones */
                 border-radius: 0px 0px 4px 4px;
             }

@@ -1,0 +1,136 @@
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+    font-family:'Poppins',sans-serif;
+}
+body {
+    background-image: url("assets/bg.jpg");
+    background-size: cover;
+
+}
+.header{
+    top: 0;
+    left: 0;
+    width: 100%;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:3% 20% 0 20%;
+
+}
+.title {
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+}
+.logo {
+    display:flex;
+    align-items: center;
+}
+
+a {
+    margin-right: 5px;
+    padding: 20px;
+    text-align: center;
+    border-radius:50%;
+    border: 1px solid white;
+    transition: 0.3s all linear;
+}
+a:hover {
+    background-color: #ff3251;
+    border: 1px solid #ff3251;
+}
+
+i {
+    color:white;
+    width:20px;
+}
+
+
+
+
+.content {
+    padding: 7.5% 0 0 20%;
+
+}
+
+.hasLine{
+    display: flex;
+    align-items: center;
+
+}
+.content hr {
+    display:inline-block;
+    width: 50px;
+    border-width:1px;
+    border-color: black;
+    margin-right:1%;
+}
+.content h3 {
+    display:inline-block;
+}
+h1{
+    font-size: 100px;
+    font-weight: bold;
+    line-height:1.1;
+    width:750px;
+    color: #001141;
+}
+.notify-form {
+    padding-top:30px;
+    position: relative;
+}
+.notify-form input{
+    width: 800px;
+    padding-left: 30px;
+    height:70px;
+    border-radius: 40px;
+    border: 1px solid gray;
+    transition: 0.3s all linear;
+    outline: none;
+    font-size: 15px;
+}
+.notify-form input:hover{
+    border-color:#ff3251;
+}
+.notify-form button {
+    width: 175px;
+    height: 70px;
+    border-radius: 40px;
+    border: none;
+    background-color: #FF3251;
+    color: white;
+    font-size: 20px;
+    cursor:pointer;
+    position: absolute;
+    left: 650px;
+}
+
+@media (max-width:1366px) {
+    h1{
+        font-size: 80px;
+        font-weight: bold;
+        line-height:1;
+        width:600px;
+        color: #001141;
+    }
+
+    .header {
+        padding:3% 15% 0 15%;
+    }
+    .content {
+        padding: 5% 0 0 15%;
+    }
+    .notify-form input{
+        width: 600px;
+        height:50px;
+    }
+    .notify-form button {
+        left: 500px;
+        height:50px;
+        width: 131px;
+    }
+}
+
+
