@@ -29,9 +29,13 @@ body {
     align-items: center;
 }
 
+
+.social-link{
+    gap:10px;
+    display:flex;
+}
 a {
-    margin-right: 5px;
-    padding: 20px;
+    padding: 15px;
     text-align: center;
     border-radius:50%;
     border: 1px solid white;
@@ -108,27 +112,34 @@ h1{
 }
 
 @media (max-width:1366px) {
-    h1{
+    h1 {
         font-size: 80px;
         font-weight: bold;
-        line-height:1;
-        width:600px;
+        line-height: 1;
+        width: 600px;
         color: #001141;
     }
 
     .header {
-        padding:3% 15% 0 15%;
+        padding: 3% 15% 0 10%; /* Reduced left padding for better fit */
     }
+
+    .header a {
+        padding: 10px; /* Reduce padding of social icons */
+    }
+
     .content {
-        padding: 5% 0 0 15%;
+        padding: 5% 0 0 10%;
     }
-    .notify-form input{
+
+    .notify-form input {
         width: 600px;
-        height:50px;
+        height: 50px;
     }
+
     .notify-form button {
         left: 500px;
-        height:50px;
+        height: 50px;
         width: 131px;
     }
 }
