@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .card1 {
+            display: flex;
+            padding-left:30%;
+
+            flex-direction: column;
+            gap: 20px; /* Add space between items */
+
+        }
+        p {
+            font-size: 64px;
+            font-weight: bold;
+            color: #0b1335; /* Dark navy color as seen in the image */
+        }
+        .button-container {
+            display: flex;
+            align-items: center;
+            font-size: 30px;
+            gap: 10px;
+            color: #0b1335; /* Match the text color */
+        }
+        .button-container img {
+            width: 24px; /* Adjust the size of the refresh icon */
+            height: auto;
+            cursor: pointer;
+        }
+        .input-form {
+            display: flex;
+            width: 100%;
+        }
+        .input-form input {
+            padding: 15px 20px;
+            width: 350px;
+            border: 1px solid #ccc;
+            border-radius: 40px;
+            font-size: 18px;
+            color: #333;
+            outline: none;
+        }
+        .input-form input::placeholder {
+            color: #999;
+        }
+    </style>
+</head>
+<body>
+<div class="card1">
+    <p>launch.</p>
+    <div class="button-container">
+        <span id="launch-counter">00:00:00</span>
+        <button style="background: none; border: none;" onclick="startCountDown(); //count the time every second">
+            <img src="https://cdn0.iconfinder.com/data/icons/glyphpack/41/refresh-512.png" alt="refresh">
+        </button>
+    </div>
+    <div class="input-form">
+        <input type="email" name="email" placeholder="Enter your email" required>
+    </div>
+</div>
+
+
+
+<script>
+    //Set the date we are counting down to, we assign to a constant as this shouldn't be changed in our code.
+    //we are using the date object(https://www.w3schools.com/js/js_dates.asp)
+    // we are then converting this to a unix timestamp, although in milliseconds not seconds
+    const launchTime = new Date('September 29, 2024 18:40:50').getTime();
+    let countdownInterval;
+
+    const calculateDifference = () => {   //function = {}
+        //get the time right now
+        const now = new Date().getTime();
+        return launchTime - now;
+    }
+    const updateCounter = () => {
+        const timeDifferent = calculateDifference();
+        // calculate the time in days hours minutes and seconds
+        const days = Math.floor(timeDifferent/(1000 * 60 * 60 * 24))
+        const hours = Math.floor((timeDifferent % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((timeDifferent % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((timeDifferent % (1000 * 60)) / 1000);
+        console.log("test")
+        const outputElement = document.getElementById("launch-counter")
+        if (timeDifferent <0) {
+            clearInterval(countdownInterval)
+            outputElement.innerHTML = "Launch time completed"
+        }else{
+            //display value
+            outputElement.innerHTML = `${days} d ${hours}h ${minutes}m ${seconds}s`
+        }
+    }
+
+    const startCountDown = () => {
+        countdownInterval = setInterval(updateCounter, 1000);
+
+    }
+
+
+
+
+    // document.getElementById("launch-counter").innerHTML = launchTime;
+</script>
+</body>
+</html>
