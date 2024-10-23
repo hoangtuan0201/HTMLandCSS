@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Youtube.com Clone</title>
+    <style>
+        .search-bar {
+            display: block;
+        }
+        .thumbnail {
+            width: 300px;
+            display:block;
+        }
+
+        .video-review {
+            width:300px;
+            display:inline-block;
+            vertical-align: top;
+            margin-right:15px;
+        }
+        .video-title {
+            margin-top:0;
+        }
+        .channel-picture {
+            display: inline-block;
+            width: 40px;
+            vertical-align: top;
+        }
+        .video-info {
+        }
+        .profile {
+            width:100%;
+            /*this img will take up 100% of the container*/
+            border-radius: 50%;
+        }
+        .video-info-grid{
+            display: grid;
+            grid-template-columns: 50px 1fr;
+        }
+
+
+    </style>
+</head>
+<body>
+    <input class="search-bar" type="text" placeholder="Search" >
+
+    <div class="video-review">
+        <img class ="thumbnail" src="img.png" alt="thumbnail">
+        <div class="video-info-grid" style="margin-top: 10px;">
+            <div class="channel-picture" style="margin-right: 10px">
+                <img class="profile" src="author.png" alt="author">
+            </div>
+            <div class="video-info">
+                <p class="video-title">
+                    Talking Tech and AI with Google CEO Sundar Pichai!
+                </p>
+                <p class="video-author">
+                    Marques BrownLee
+                </p>
+                <p class="video-stats">
+                    3.4M views &#183; 6 months ago
+                </p>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="video-review">
+        <img class ="thumbnail" src="img_1.png" alt="thumbnail">
+        <div class="video-info-grid" style="margin-top: 10px;">
+            <div class="channel-picture" style="margin-right: 10px">
+                <img class="profile" src="author.png" alt="author">
+            </div>
+            <div class="video-info">
+                <p class="video-title">
+                    React Course(2024)-Lesson 1
+                </p>
+                <p class="video-author">
+                    SuperSimpleDev
+                </p>
+                <p class="video-stats">
+                    500K views &#183; 6 months ago
+                </p>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>
