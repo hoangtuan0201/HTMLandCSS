@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>timestable</title>
+	<style>
+		p,button, input{
+			font-size:2rem;
+			font-family: arial,sans-serif;
+			padding:0.5rem;
+		}
+		p{
+			background-color:aquamarine;
+			width:60%;
+			margin: 0.5rem auto;
+			height:28rem;
+		}
+
+	</style>
+</head>
+
+<body>
+
+<!-- Canvas element to draw on -->
+<canvas id="sCanvas" width="550" height="400"></canvas>
+
+<script>
+    // Art Balling Generator 550px x 400px using Loops
+    // Variables for random color, size, and position
+    var randomColour;
+    var randomSize;
+    var xPos;
+    var yPos;
+    var i; // Counter for main loop
+    var j; // Counter for inner loop
+
+    // Get the Canvas element with ID 'sCanvas' to draw on
+    var c = document.getElementById("sCanvas");
+    var ctx = c.getContext("2d");
+
+    // Function to draw a filled circle
+    function drawFilledCircle(size, xPos, yPos, colour) {
+        ctx.beginPath();
+        ctx.arc(xPos, yPos, size, 0, 2 * Math.PI);
+        ctx.fillStyle = colour;
+        ctx.fill();
+    }
+
+    // Function to create a splatter effect
+    function drawSplatter(size, xPos, yPos, colour) {
+        for (j = 0; j < 10; j++) { // Loop to create multiple circles
+            var splatSize = size / Math.round(Math.random() * 30);
+            drawFilledCircle(
+                splatSize,
+                xPos + Math.round(Math.random() * 50),
+                yPos + Math.round(Math.random() * 50),
+                colour
+            );
+        }
+    }
+    randomSize = Math.round(Math.random() * 50);
+    xPos = Math.round(Math.random() * 550);
+    yPos = Math.round(Math.random() * 400);
+    randomColour = '#' + Math.random().toString(16).substring(2, 8);
+    drawFilledCircle(randomSize, xPos, yPos, randomColour); // Draw initial circle
+	drawSplatter(randomSize, xPos, yPos, randomColour)
+
+
+</script>
+</body>
+</html>

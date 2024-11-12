@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<style>
+	.container {
+		border: 2px solid black;
+		max-width: 400px;
+		padding: 20px;
+		margin-bottom:20px;
+	}
+</style>
+
+<body>
+
+
+	<div class="container">
+		<label for="farhenheit">Enter farhenheit</label><br>
+		<input type="number" id="farhenheit">
+		<button id="convert" onclick="convertFarhenheit()">convert</button>
+		<div id="result">
+
+		</div>
+	</div>
+
+	<div class="container">
+		<label for="farhenheit">Enter celsius</label><br>
+		<input type="number" id="celsius">
+		<button id="convert2" onclick="convertCelsius()">convert</button>
+		<div id="result2">
+
+		</div>
+	</div>
+
+
+
+	<script>
+		function convertFarhenheit() {
+			var fDegreeElement = document.getElementById('farhenheit').value;
+			var result = (fDegreeElement - 32) * 5/9;
+			var resultElement = document.getElementById('result')
+
+			resultElement.innerHTML += `<p> The temperature in Celsius is ${result.toFixed(2)}C</p>`
+		}
+        function convertCelsius() {
+            var cDegreeElement = document.getElementById('celsius').value;
+            var result = (cDegreeElement * 9/5) + 32;
+            var resultElement = document.getElementById('result2')
+            resultElement.innerHTML += `<p> The temperature in Farhenheit is ${result.toFixed(2)}F</p>`
+		}
+	</script>
+</body>
+</html>

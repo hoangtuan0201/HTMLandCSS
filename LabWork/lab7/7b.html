@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<canvas id="sCanvas" width="550" height="400"></canvas>
+<div class="container1">
+	<label for="name">Enter your name:</label>
+	<input type="text" id="name" name="name" required>
+	<label for="age">Enter your age:</label>
+	<input type="number" id="age" name="age" min="1" max="150" required>
+	<button onclick="draw()">draw</button>
+
+	<label for="drop">eyecolor</label>
+	<select name="transport" id="drop">
+		<option value="red">red</option>
+		<option value="green">green</option>
+		<option value="blue">blue</option>
+		<option value="yellow">yellow</option>
+	</select>
+</div>
+
+
+
+<script>
+    // Variables
+    // Colours
+    const blue = "#0000FF";
+    const green = "#006600";
+    const brown = "#543725";
+    const red = "#FF0000";
+    const yellow = "#FFFF00";
+    const grey = "#666666";
+    const white = "#FFFFFF";
+    const black = "#000000";
+    let colour;  // global variable for use in functions
+
+	const age = document.getElementById("age").value;
+    const fname = document.getElementById("name").value;
+    // Get the Canvas element with ID sCanvas that will be drawn on
+    const c = document.getElementById("sCanvas");
+    const ctx = c.getContext("2d");
+
+    // Draw a square with a specified size, position, and colour
+    function drawFilledShape(sWidth, sHeight, x, y, colour) {
+        ctx.beginPath();
+        ctx.rect(x, y, sWidth, sHeight);
+        ctx.fillStyle = colour;
+        ctx.fill();
+        ctx.strokeStyle = black;
+        ctx.lineWidth = 5;
+        ctx.stroke();
+    }
+
+    function turnNameIntoColour(fName) {
+        if (fName.length > 6) {
+            colour = white;
+        } else {
+            colour = grey;
+        }
+        return colour;
+    }
+
+    function turnAgeIntoColour(age) {
+        if 	(age < 30) {
+            colour = yellow;
+		}else {
+            colour = red;
+		}
+        return colour;
+    }
+
+    function turnEyeColourIntoColour(eyeColour) {
+        switch (eyeColour) {
+            case "red":
+                return red;
+            case "green":
+                return green;
+            case "blue":
+                return blue;
+            case "yellow":
+                return yellow;
+            default:
+                return black;
+        }
+    }
+
+    function draw() {
+         // using let as will be taking user input later
+        const eyeColour = document.getElementById("drop").value;
+        const age = document.getElementById("age").value;
+        const fName = document.getElementById("name").value;
+
+        // Turn details into colours
+        const sColourTopLeft = turnAgeIntoColour(age);
+        const sColourBottomLeft = turnNameIntoColour(fName);
+        const sColourRight = turnEyeColourIntoColour(eyeColour);
+
+        // Draw the coloured shapes
+        drawFilledShape(150, 150, 0, 0, sColourTopLeft);
+        drawFilledShape(150, 250, 0, 150, sColourBottomLeft);
+        drawFilledShape(400, 400, 150, 0, sColourRight);
+    }
+
+    // draw(); // call the main draw function
+</script>
+</body>
+</html>

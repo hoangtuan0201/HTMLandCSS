@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Simple Painter</title>
+	<style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        #canvas {
+            border: 1px solid #000;
+            cursor: c;
+            margin-top: 10px;
+        }
+        #controls {
+            display: flex;
+            gap: 10px;
+        }
+	</style>
+</head>
+<body>
+<div id="controls">
+	<input type="color" id="colorPicker" value="#000000">
+	<button id="eraserButton">Eraser</button>
+	<button id="clearButton">Clear Canvas</button>
+</div>
+<canvas id="canvas" width="600" height="400"></canvas>
+<script src="painter.js"></script>
+</body>
+</html>
+
+
+<script>
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+    const colorPicker = document.getElementById('colorPicker');
+    const clearButton = document.getElementById('clearButton');
+    const eraserButton = document.getElementById('eraserButton');
+
+    let drawing = false;
+    let isEraserMode = false; // Track if eraser mode is on
+    let brushColor = colorPicker.value; // Initial brush color
+
+    // Update brush color when the color picker changes
+    colorPicker.addEventListener('input', (e) => {
+        brushColor = e.target.value;
+    });
+
+    // Toggle eraser mode
+    eraserButton.addEventListener('click', () => {
+        isEraserMode = !isEraserMode;
+        eraserButton.textContent = isEraserMode ? "Brush" : "Eraser";
+    });
+
+    // Clear canvas when the clear button is clicked
+    clearButton.addEventListener('click', clearCanvas);
+
+    canvas.addEventListener('mousedown', startDrawing);
+    canvas.addEventListener('mousemove', draw);
+    canvas.addEventListener('mouseup', stopDrawing);
+    canvas.addEventListener('mouseleave', stopDrawing);
+
+    function startDrawing(e) {
+        drawing = true;
+        ctx.beginPath();
+        ctx.moveTo(e.offsetX, e.offsetY);
+    }
+
+    function draw(e) {
+        if (!drawing) return;
+        ctx.lineWidth = 10;
+        ctx.lineCap = 'round';
+        ctx.strokeStyle = isEraserMode ? "#f0f0f0" : brushColor; // Use canvas background color in eraser mode
+
+        ctx.lineTo(e.offsetX, e.offsetY);
+        ctx.stroke();
+    }
+
+    function stopDrawing() {
+        drawing = false;
+        ctx.closePath();
+    }
+
+    // Function to clear the canvas
+    function clearCanvas() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+    }
+
+</script>
+</body>
+</html>

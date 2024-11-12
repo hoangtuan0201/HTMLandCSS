@@ -68,6 +68,9 @@
         <input type="email" name="email" placeholder="Enter your email" required>
     </div>
 </div>
+<button onclick="stopCountDown()7">
+    stop
+</button>
 
 
 
@@ -75,7 +78,7 @@
     //Set the date we are counting down to, we assign to a constant as this shouldn't be changed in our code.
     //we are using the date object(https://www.w3schools.com/js/js_dates.asp)
     // we are then converting this to a unix timestamp, although in milliseconds not seconds
-    const launchTime = new Date('September 29, 2024 18:40:50').getTime();
+    const launchTime = new Date('October 2, 2024 13:14:50').getTime();
     let countdownInterval;
 
     const calculateDifference = () => {   //function = {}
@@ -101,13 +104,14 @@
         }
     }
 
+    function stopCountDown() {
+        clearInterval(countdownInterval);
+    }
+
     const startCountDown = () => {
         countdownInterval = setInterval(updateCounter, 1000);
 
     }
-
-
-
 
     // document.getElementById("launch-counter").innerHTML = launchTime;
 </script>

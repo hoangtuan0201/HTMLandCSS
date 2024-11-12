@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>nested loops</title>
+</head>
+<body>
+<p id="output"></p>
+
+
+<script type="text/javascript">
+    let i;
+    let j;
+    for (i=0; i<2; i++) {
+      console.log("outer loop")
+      document.getElementById('output').innerHTML += "outerloop" +" <br>";
+      for (j=0; j<2; j++) {
+        console.log("inner loop")
+        document.getElementById('output').innerHTML += "inner loop" +" <br>";
+      }
+    }
+</script>
+
+</body>
+</html>

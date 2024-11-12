@@ -8,17 +8,24 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
   <style>
+
       .nav-link:hover {
           background-color:#fd7e14;
           color:white;
+          transition: ease 0.5s;
       }
 
 
   </style>
 </head>
 <body class="text-white-50 bg-dark">
-<div class="container">
-  <h1 class="mb-3 ">Contact</h1>
+<div class="container" style="max-width: 60%">
+    <div class="form-info" style="float:right">
+        <h1>Form Info</h1>
+        <p class="content"></p>
+    </div>
+
+    <h1 class="mb-3 ">Contact</h1>
 
   <nav class="nav bg-light p-0 mb-4 rounded" style="max-width: 500px;">
     <a class="nav-link link-dark" href="#">Home</a>
@@ -27,7 +34,7 @@
     <a class="nav-link link-dark" href="index.html">Contact</a>
   </nav>
 
-  <form action=""  style="max-width: 500px;">
+  <form action=""  style="max-width: 500px;" onsubmit="return myFunction()">
     <fieldset class="p-4" style="border:1px solid;">
 <!--      padding 4-->
       <legend>Your Details:</legend>
@@ -80,13 +87,40 @@
             </label>
         </div>
 
-
-
       <button type="submit" class="btn btn-warning mt-1 me-2">Reset</button>
       <!--      margin top1 and margin right 2-->
       <button type="submit" class="btn btn-warning mt-1 me-2">Submit</button>
     </fieldset>
   </form>
 </div>
+
+
+
+<script>
+
+    function myFunction() {
+        var fnameElement = document.getElementById("fname").value;
+        var lnameElement = document.getElementById('lname').value;
+        var emailElement = document.getElementById('email').value;
+        var commentsElement = document.getElementById('comments').value;
+        var comboboxElement = document.getElementById('combobox').value;
+
+
+        var visitElement = document.querySelector('input[name="visit"]:checked').value
+        // Radio buttons: Check which is selected
+
+        var contentElement = document.querySelector('.content')
+
+        contentElement.innerHTML = "Form submitted successfully!<br>" +
+            "First Name: " + fnameElement + "<br>" +
+            "Last Name: " + lnameElement + "<br>" +
+            "Email: " + emailElement + "<br>" +
+            "Comments: " + commentsElement + "<br>" +
+                "From: " + comboboxElement + "<br>" +
+            "Visit Again: " + visitElement;
+        return false;
+    }
+
+</script>
 </body>
 </html>
